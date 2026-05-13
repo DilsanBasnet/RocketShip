@@ -1,8 +1,13 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class lander : MonoBehaviour{
     private Rigidbody2D landerRigidbody2D;
+    public event  EventHandler onUpForce;
+    public event  EventHandler onRightForce;
+    public event  EventHandler onLeftForce;
+
 
     private void Awake(){
 
@@ -18,6 +23,8 @@ public class lander : MonoBehaviour{
         if (Keyboard.current.upArrowKey.isPressed){
             float force = 700f;
             landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
+
+        onUpForce? 
         }
         if (Keyboard.current.leftArrowKey.isPressed){
             float turnSpeed = +100f;
