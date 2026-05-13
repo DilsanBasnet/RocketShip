@@ -7,6 +7,7 @@ public class lander : MonoBehaviour{
     public event  EventHandler onUpForce;
     public event  EventHandler onRightForce;
     public event  EventHandler onLeftForce;
+    public event  EventHandler onBeforeForce;
 
 
     private void Awake(){
@@ -18,21 +19,24 @@ public class lander : MonoBehaviour{
     }
 
     private void FixedUpdate(){
+        onBeforeForce?.Invoke(this, EventArgs.Empty);
 
 
         if (Keyboard.current.upArrowKey.isPressed){
             float force = 700f;
             landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
 
-        onUpForce? 
+        onUpForce?.Invoke(this, EventArgs.Empty);
         }
         if (Keyboard.current.leftArrowKey.isPressed){
             float turnSpeed = +100f;
             landerRigidbody2D.AddTorque(+turnSpeed * Time.deltaTime);
+            onLeftForce?.Invoke(this, EventArgs.Empty);
         }
         if (Keyboard.current.rightArrowKey.isPressed){
             float turnSpeed = -100f;
             landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
+        onRightForce?.Invoke(this, EventArgs.Empty);
         }
     }
 
