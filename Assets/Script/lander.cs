@@ -63,5 +63,9 @@ float relativeVelocityMagnitude = collision.relativeVelocity.magnitude;
         float landingspeedScore = (softLandingVelocityMagnitude - relativeVelocityMagnitude) * maxScoreAmountLandingSpeed;
        Debug.Log("LandingAngleScore: " + landingAngleScore);
        Debug.Log("LandingSpeedScore: " + landingspeedScore);
+
+       int score = Mathf.RoundToInt((landingAngleScore + landingspeedScore) * landingpad.GetScoreMultiplier());
+
+    Debug.Log("Score:" + score);
     }
 }
