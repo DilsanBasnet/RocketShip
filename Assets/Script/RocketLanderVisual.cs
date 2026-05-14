@@ -1,21 +1,24 @@
 using UnityEngine;
-public class LanderVisual : MonoBehaviour{
+public class RocketLanderVisual : MonoBehaviour{
     [SerializeField] private ParticleSystem LeftThruster;
     [SerializeField] private ParticleSystem MiddleThruster;
     [SerializeField] private ParticleSystem RightThruster;
-private lander lander;
+private lander Lander;
 
 private void Awake()  {
-        lander = GetComponent<lander>();
-     lander.onUpForce += Lander_onUpForce;
-    lander.onLeftForce += Lander_onLeftForce;
-    lander.onRightForce += Lander_onRightForce;
-    lander.onBeforeForce += Lander_onBeforeForce;
+
+
+        Lander = GetComponent<lander>();
+     Lander.OnUpForce += Lander_onUpForce;
+Lander.OnLeftForce += Lander_onLeftForce;
+    Lander.OnRightForce += Lander_onRightForce;
+   Lander.OnBeforeForce += Lander_onBeforeForce;
 
      SetEnabledThruster(RightThruster, false);
 SetEnabledThruster(MiddleThruster, false);
      SetEnabledThruster(LeftThruster, false);
 }
+
 
 private void  Lander_onBeforeForce(object sender, System.EventArgs e){
     
@@ -23,23 +26,27 @@ private void  Lander_onBeforeForce(object sender, System.EventArgs e){
 SetEnabledThruster(MiddleThruster, false);
      SetEnabledThruster(LeftThruster, false);
     }
+
+    
+
+    private void  Lander_onLeftForce(object sender, System.EventArgs e){
+     SetEnabledThruster(RightThruster, true);
+     SetEnabledThruster(MiddleThruster, true);
+
+    }
+
+
+    private void  Lander_onRightForce(object sender, System.EventArgs e){
+    SetEnabledThruster(LeftThruster, true);
+    SetEnabledThruster(MiddleThruster, true);
+    }
     private void  Lander_onUpForce(object sender, System.EventArgs e){
-      SetEnabledThruster(LeftThruster, true);
+    SetEnabledThruster(LeftThruster, true);
         SetEnabledThruster(MiddleThruster, true);
 SetEnabledThruster(RightThruster, true);
     }
-    private void  Lander_onLeftForce(object sender, System.EventArgs e){
- SetEnabledThruster(LeftThruster, true);
-        SetEnabledThruster(MiddleThruster, false);
-     SetEnabledThruster(RightThruster, true);
-    }
-    private void  Lander_onRightForce(object sender, System.EventArgs e){
-    SetEnabledThruster(LeftThruster, true);
-     SetEnabledThruster(MiddleThruster, false);
-SetEnabledThruster(RightThruster, true);
-    }
     private void SetEnabledThruster(ParticleSystem particlesystem, bool enabled) {
-       ParticleSystem.EmissionModule emissionModule = LeftThruster.emission;
+       ParticleSystem.EmissionModule emissionModule = particlesystem.emission;
        emissionModule.enabled = enabled;
     }
 

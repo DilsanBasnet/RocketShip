@@ -4,41 +4,42 @@ using UnityEngine.InputSystem;
 
 public class lander : MonoBehaviour{
     private Rigidbody2D landerRigidbody2D;
-    public event  EventHandler onUpForce;
-    public event  EventHandler onRightForce;
-    public event  EventHandler onLeftForce;
-    public event  EventHandler onBeforeForce;
+    public event  EventHandler OnUpForce;
+    public event  EventHandler OnRightForce;
+    public event  EventHandler OnLeftForce;
+    public event  EventHandler OnBeforeForce;
 
 
     private void Awake(){
 
         landerRigidbody2D = GetComponent<Rigidbody2D>();
-
-
-    
     }
 
     private void FixedUpdate(){
-        onBeforeForce?.Invoke(this, EventArgs.Empty);
-
+        OnBeforeForce?.Invoke(this, EventArgs.Empty);
 
         if (Keyboard.current.upArrowKey.isPressed){
             float force = 700f;
             landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
 
-        onUpForce?.Invoke(this, EventArgs.Empty);
-        }
-        if (Keyboard.current.leftArrowKey.isPressed){
-            float turnSpeed = +100f;
-            landerRigidbody2D.AddTorque(+turnSpeed * Time.deltaTime);
-            onLeftForce?.Invoke(this, EventArgs.Empty);
+        OnUpForce?.Invoke(this, EventArgs.Empty);
         }
         if (Keyboard.current.rightArrowKey.isPressed){
             float turnSpeed = -100f;
             landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
-        onRightForce?.Invoke(this, EventArgs.Empty);
+        OnRightForce?.Invoke(this, EventArgs.Empty);
+
         }
+        if (Keyboard.current.leftArrowKey.isPressed){
+            float turnSpeed = +100f;
+            landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
+            OnLeftForce?.Invoke(this, EventArgs.Empty);
+        }
+        
     }
+
+
+
 
     private void OnCollisionEnter2D(Collision2D collision){
 
