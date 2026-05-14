@@ -9,6 +9,7 @@ public class lander : MonoBehaviour
     public event EventHandler OnRightForce;
     public event EventHandler OnLeftForce;
     public event EventHandler OnBeforeForce;
+    public event EventHandler OnCoinCollect;
 
     private Rigidbody2D landerRigidbody2D;
     private float fuelAmount = 10f;
@@ -23,7 +24,7 @@ public class lander : MonoBehaviour
     private void FixedUpdate()
     {
         OnBeforeForce?.Invoke(this, EventArgs.Empty);
-        Debug.Log(fuelAmount);
+        
 
         if (fuelAmount <= 0f)
         {
@@ -117,7 +118,8 @@ public class lander : MonoBehaviour
         }
 
         if(collider.gameObject.TryGetComponent(out coin Coin)){
-           
+            OnCoinCollect?.Invoke(this, EventArgs.Empty);
+           Coin.DestroySelf() ;
         }
 
     }
