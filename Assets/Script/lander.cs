@@ -11,6 +11,11 @@ private const float GRAVITY_NORMAL = 0.7f;
     public event EventHandler OnLeftForce;
     public event EventHandler OnBeforeForce;
     public event EventHandler OnCoinCollect;
+    public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
+    public class OnStateChangedEventArgs: EventArgs  
+{
+        public State state;
+    }
     public event EventHandler<OnLandedEventArgs> OnLanded;
     public class OnLandedEventArgs: EventArgs{
         public landingtype Landingtype;
@@ -30,6 +35,7 @@ private const float GRAVITY_NORMAL = 0.7f;
     {
         WatitingToStart, 
         Normal,
+        GameOver, 
         
         
     }
@@ -63,9 +69,9 @@ state = State.WatitingToStart;
         {
             
             landerRigidbody2D.gravityScale = GRAVITY_NORMAL;
-            state = State.Normal;
-        }
-
+            SetState(State.Normal);
+                    }
+    
             break;
 
              case State.Normal: 
@@ -104,6 +110,8 @@ state = State.WatitingToStart;
         }
            
 break;
+case State.GameOver: 
+break;
 
         }
     }
@@ -122,6 +130,8 @@ break;
                 score = 0,
                 
             });
+
+           SetState(State.GameOver);
             return;
         }
 
@@ -141,6 +151,7 @@ break;
                 score = 0,
                 
             });
+            SetState(State.GameOver);
             return;
         }
 
@@ -153,9 +164,7 @@ break;
                 dotVector = dotVector,
                 landingspeed = relativeVelocityMagnitude,
                 scoreMultiplier = landingpad.GetScoreMultiplier(), score = 0,
-                
-
-            });
+            }); SetState(State.GameOver);
 
         }
 
@@ -182,6 +191,7 @@ break;
             score = score,
             
         });
+        SetState(State.GameOver);
     }
 
     private void OnTriggerEnter2D(Collider2D collider)
@@ -203,6 +213,14 @@ break;
            Coin.DestroySelf() ;
         }
 
+    }
+
+    private void SetState(State state)
+    {
+        this.state = state;
+        OnStateChanged?.Invoke(this, new OnStateChangedEventArgs{
+            state = state
+        });
     }
     private void ConsumeFuel()
     {

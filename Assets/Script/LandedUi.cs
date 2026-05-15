@@ -1,11 +1,21 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.Video;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LandedUi : MonoBehaviour
 {
    [SerializeField] private TextMeshProUGUI BannerText;
    [SerializeField] private TextMeshProUGUI StatsText;
+   [SerializeField] private Button nextButton;
+
+    private void Awake()
+    {
+        nextButton.onClick.AddListener(() =>
+        {
+           SceneManager.LoadScene(0); 
+        });
+    }
 
     private void Start() {
         lander.Instance.OnLanded += lander_OnLanded;

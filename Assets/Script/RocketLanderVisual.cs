@@ -3,6 +3,7 @@ public class RocketLanderVisual : MonoBehaviour{
     [SerializeField] private ParticleSystem LeftThruster;
     [SerializeField] private ParticleSystem MiddleThruster;
     [SerializeField] private ParticleSystem RightThruster;
+    [SerializeField] private GameObject landerExplosion;
 private lander Lander;
 
 private void Awake()  {
@@ -19,8 +20,26 @@ SetEnabledThruster(MiddleThruster, false);
      SetEnabledThruster(LeftThruster, false);
 }
 
+    private void Start()
+    {
+        Lander.OnLanded += lander_OnLanded;
+    }
 
-private void  Lander_onBeforeForce(object sender, System.EventArgs e){
+    private void lander_OnLanded(object sender, lander.OnLandedEventArgs e)
+    {
+        switch (e.Landingtype)
+        {
+            case lander.landingtype.TooFastLanging: 
+            case lander.landingtype.TooSteepAngle:
+            case lander.landingtype.WrongLandingArea: 
+            Instantiate(landerExplosion, transform.position, Quaternion.identity) ;
+            gameObject.SetActive(false);
+            break;
+            
+        }
+    }
+
+    private void  Lander_onBeforeForce(object sender, System.EventArgs e){
     
              SetEnabledThruster(RightThruster, false);
 SetEnabledThruster(MiddleThruster, false);
