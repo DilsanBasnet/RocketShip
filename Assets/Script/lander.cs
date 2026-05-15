@@ -18,12 +18,15 @@ public static lander Instance {get; private set;}
     }
 
     private Rigidbody2D landerRigidbody2D;
-    private float fuelAmount = 10f;
+    private float fuelAmount;
+    private float fuelAmountMax = 10f;
 
 
     private void Awake()
  {
 Instance = this;
+
+fuelAmount = fuelAmountMax;
         landerRigidbody2D = GetComponent<Rigidbody2D>();
     }
 
@@ -123,6 +126,10 @@ Instance = this;
         {
             float addfuel = 10f;
             fuelAmount += addfuel;
+            if(fuelAmount > fuelAmountMax)
+            {
+                fuelAmount = fuelAmountMax;
+            }
             Fuel.Destoryself();
 
         }
@@ -141,6 +148,10 @@ Instance = this;
     public float GetFuel()
     {
         return fuelAmount;
+    }
+    public float GetFuelAmountNormalized()
+    {
+        return fuelAmount / fuelAmountMax;
     }
 
     public float GetSpeedX()
