@@ -12,9 +12,20 @@ public static lander Instance {get; private set;}
     public event EventHandler OnBeforeForce;
     public event EventHandler OnCoinCollect;
     public event EventHandler<OnLandedEventArgs> OnLanded;
-    
     public class OnLandedEventArgs: EventArgs{
+        public landingtype Landingtype;
         public int score;
+        public float dotVector;
+        public float landingspeed;
+        public float scoreMultiplier;
+    }
+    public enum landingtype
+    {
+        success, 
+        WrongLandingArea,
+        TooSteepAngle,
+        TooFastLanging,
+
     }
 
     private Rigidbody2D landerRigidbody2D;
@@ -79,6 +90,14 @@ fuelAmount = fuelAmountMax;
         if (!collider.gameObject.TryGetComponent(out landingpad landingpad))
         {
             Debug.Log("Crashed Landed on Terrain");
+            OnLanded?.Invoke(this, new OnLandedEventArgs {
+                Landingtype = landingtype.WrongLandingArea,
+                dotVector = 0f,
+                landingspeed = 0f, 
+                scoreMultiplier = 0,
+                score = 0,
+                
+            });
             return;
         }
 
@@ -89,14 +108,31 @@ fuelAmount = fuelAmountMax;
         if (relativeVelocityMagnitude > softLandingVelocityMagnitude)
         {
             Debug.Log("Landed too hard!! crash landing");
+
+            OnLanded?.Invoke(this, new OnLandedEventArgs {
+                Landingtype = landingtype.TooFastLanging, 
+                dotVector = 0f,
+                landingspeed = relativeVelocityMagnitude,
+                scoreMultiplier = 0,
+                score = 0,
+                
+            });
             return;
         }
 
         float dotVector = Vector2.Dot(Vector2.up, transform.up);
         float minDotVector = .90f;
-        if (dotVector < minDotVector)
-        {
+        if (dotVector < minDotVector){
             Debug.Log("Landed on a too steep angle");
+            OnLanded?.Invoke(this, new OnLandedEventArgs {
+                Landingtype = landingtype.TooSteepAngle,
+                dotVector = dotVector,
+                landingspeed = relativeVelocityMagnitude,
+                scoreMultiplier = landingpad.GetScoreMultiplier(), score = 0,
+                
+
+            });
+
         }
 
 
@@ -115,6 +151,10 @@ fuelAmount = fuelAmountMax;
 
         Debug.Log("Score:" + score);
         OnLanded?.Invoke(this, new OnLandedEventArgs {
+            Landingtype  = landingtype.success,
+            dotVector = dotVector,
+            landingspeed = relativeVelocityMagnitude,
+            scoreMultiplier = landingpad.GetScoreMultiplier() ,
             score = score,
             
         });
