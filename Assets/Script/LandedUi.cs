@@ -23,8 +23,8 @@ public class LandedUi : MonoBehaviour
         }
 
         StatsText.text = 
-       Mathf.Round( e.landingspeed) + "\n" + 
-        Mathf.Round(e.dotVector) + "\n" +
+       Mathf.Round( e.landingspeed * 2f) + "\n" + 
+        Mathf.Round(e.dotVector * 100f) + "\n" +
         "x" + e.scoreMultiplier + "\n" +
         e.score;
         Show();

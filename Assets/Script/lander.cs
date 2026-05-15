@@ -2,10 +2,10 @@ using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-public class lander : MonoBehaviour
-{
+public class lander : MonoBehaviour{
 
-public static lander Instance {get; private set;} 
+private const float GRAVITY_NORMAL = 0.7f;
+    public static lander Instance {get; private set;} 
     public event EventHandler OnUpForce;
     public event EventHandler OnRightForce;
     public event EventHandler OnLeftForce;
@@ -19,18 +19,25 @@ public static lander Instance {get; private set;}
         public float landingspeed;
         public float scoreMultiplier;
     }
-    public enum landingtype
-    {
+    public enum landingtype{
         success, 
         WrongLandingArea,
         TooSteepAngle,
         TooFastLanging,
 
     }
+    public enum  State
+    {
+        WatitingToStart, 
+        Normal,
+        
+        
+    }
 
     private Rigidbody2D landerRigidbody2D;
     private float fuelAmount;
     private float fuelAmountMax = 10f;
+    private State state;
 
 
     private void Awake()
@@ -38,24 +45,41 @@ public static lander Instance {get; private set;}
 Instance = this;
 
 fuelAmount = fuelAmountMax;
+state = State.WatitingToStart;
         landerRigidbody2D = GetComponent<Rigidbody2D>();
+        landerRigidbody2D.gravityScale = 0f;
     }
 
     private void FixedUpdate()
     {
         OnBeforeForce?.Invoke(this, EventArgs.Empty);
-        
 
-        if (fuelAmount <= 0f)
+        switch(state){
+
+            default: case State.WatitingToStart: 
+            if (Keyboard.current.upArrowKey.isPressed ||
+                 Keyboard.current.leftArrowKey.isPressed ||
+                 Keyboard.current.rightAltKey.isPressed)
         {
-            return;
+            
+            landerRigidbody2D.gravityScale = GRAVITY_NORMAL;
+            state = State.Normal;
         }
+
+            break;
+
+             case State.Normal: 
+             
+                    if (fuelAmount <= 0f){
+                         return;
+        } 
+       
+
 
         if (Keyboard.current.upArrowKey.isPressed ||
         Keyboard.current.leftArrowKey.isPressed ||
         Keyboard.current.rightAltKey.isPressed)
-        {
-            ConsumeFuel();
+        ConsumeFuel(); {
         }
 
 
@@ -78,11 +102,11 @@ fuelAmount = fuelAmountMax;
             landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
             OnLeftForce?.Invoke(this, EventArgs.Empty);
         }
+           
+break;
 
+        }
     }
-
-
-
 
     private void OnCollisionEnter2D(Collision2D collider)
     {
