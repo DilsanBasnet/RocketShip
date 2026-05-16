@@ -63,9 +63,10 @@ state = State.WatitingToStart;
         switch(state){
 
             default: case State.WatitingToStart: 
-            if (Keyboard.current.upArrowKey.isPressed ||
-                 Keyboard.current.leftArrowKey.isPressed ||
-                 Keyboard.current.rightAltKey.isPressed)
+            if (GameInput.Instance.IsUpActionPressed() || 
+            GameInput.Instance.IsLeftActionPressed()||
+                 GameInput.Instance.IsRightActionPressed()
+            )
         {
             
             landerRigidbody2D.gravityScale = GRAVITY_NORMAL;
@@ -82,27 +83,26 @@ state = State.WatitingToStart;
        
 
 
-        if (Keyboard.current.upArrowKey.isPressed ||
-        Keyboard.current.leftArrowKey.isPressed ||
-        Keyboard.current.rightAltKey.isPressed)
-        ConsumeFuel(); {
+        if (GameInput.Instance.IsUpActionPressed() || 
+            GameInput.Instance.IsLeftActionPressed()||
+                 GameInput.Instance.IsRightActionPressed()) {
         }
 
 
-        if (Keyboard.current.upArrowKey.isPressed)
+        if (GameInput.Instance.IsUpActionPressed())
         {
             float force = 700f;
             landerRigidbody2D.AddForce(force * transform.up * Time.deltaTime);
             OnUpForce?.Invoke(this, EventArgs.Empty);
         }
-        if (Keyboard.current.rightArrowKey.isPressed)
+        if (GameInput.Instance.IsRightActionPressed())
         {
             float turnSpeed = -100f;
             landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
             OnRightForce?.Invoke(this, EventArgs.Empty);
 
         }
-        if (Keyboard.current.leftArrowKey.isPressed)
+        if (GameInput.Instance.IsLeftActionPressed())
         {
             float turnSpeed = +100f;
             landerRigidbody2D.AddTorque(turnSpeed * Time.deltaTime);
