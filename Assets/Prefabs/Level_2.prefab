@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1275170355768664502
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3493586862994819672}
+  m_Layer: 0
+  m_Name: CameraStartTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3493586862994819672
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275170355768664502}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.2, y: 12.7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6512935060310739846}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3419371317486190541
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +158,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 5.600588, y: 6.1317606, z: 0}
-    m_Extent: {x: 28.735304, y: 10.642278, z: 0}
+    m_Center: {x: 5.600588, y: 0.44992065, z: 0}
+    m_Extent: {x: 28.735302, y: 16.324116, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &7124154602847574683
 MonoBehaviour:
@@ -233,7 +264,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 32.583813, y: -3.7434628, z: 0}
+    - position: {x: 32.18859, y: -15.07047, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -241,7 +272,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 15.143177, y: -4.510517, z: 0}
+    - position: {x: 15.538401, y: -15.028455, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -249,7 +280,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -0.8032134, y: -3.853697, z: 0}
+    - position: {x: -2.4829152, y: -15.874195, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -257,7 +288,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -23.134716, y: -3.644968, z: 0}
+    - position: {x: -23.134714, y: -15.203144, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -306,10 +337,10 @@ MonoBehaviour:
   - {x: 20.14179, y: 12.900106}
   - {x: 21.684847, y: 3.9573305}
   - {x: 34.33589, y: 6.3900394}
-  - {x: 32.583813, y: -3.7434628}
-  - {x: 15.143177, y: -4.510517}
-  - {x: -0.8032134, y: -3.853697}
-  - {x: -23.134716, y: -3.644968}
+  - {x: 32.18859, y: -15.07047}
+  - {x: 15.538401, y: -15.028455}
+  - {x: -2.4829152, y: -15.874195}
+  - {x: -23.134714, y: -15.203144}
   - {x: -21.52449, y: 16.33247}
   - {x: -15.824662, y: 16.774038}
   m_ShadowSegment: []
@@ -370,10 +401,10 @@ PolygonCollider2D:
       - {x: 20.14179, y: 12.900106}
       - {x: 21.684847, y: 3.9573305}
       - {x: 34.33589, y: 6.3900394}
-      - {x: 32.583813, y: -3.7434628}
-      - {x: 15.143177, y: -4.510517}
-      - {x: -0.8032134, y: -3.853697}
-      - {x: -23.134716, y: -3.644968}
+      - {x: 32.18859, y: -15.07047}
+      - {x: 15.538401, y: -15.028455}
+      - {x: -2.4829152, y: -15.874195}
+      - {x: -23.134714, y: -15.203144}
       - {x: -21.52449, y: 16.33247}
       - {x: -15.824662, y: 16.774038}
   m_UseDelaunayMesh: 1
@@ -416,6 +447,7 @@ Transform:
   - {fileID: 1290905307678626801}
   - {fileID: 1755367253161413457}
   - {fileID: 3195447678883516285}
+  - {fileID: 3493586862994819672}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &-635627518627699336
@@ -432,6 +464,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameLevel
   levelNumber: 2
   landerStartPositionTransform: {fileID: 3195447678883516285}
+  cameraStartTransform: {fileID: 3493586862994819672}
+  zoomedOutOrthographic: 28
 --- !u!1001 &346892166908856707
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -31,6 +31,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 6512935060310739846}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &3932210213065404426
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1723206662982604649}
+  m_Layer: 0
+  m_Name: CameraStartTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1723206662982604649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3932210213065404426}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 10.6, y: 7, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 6512935060310739846}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4196015736159206047
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +158,8 @@ SpriteShapeRenderer:
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   - {fileID: 21300000, guid: 608e61deb05c54660bebf5a4dd2ee02d, type: 3}
   m_LocalAABB:
-    m_Center: {x: 10.851919, y: 14.967625, z: 0}
-    m_Extent: {x: 30.151373, y: 19.478142, z: 0}
+    m_Center: {x: 7.540987, y: 3.5548363, z: 0}
+    m_Extent: {x: 33.462307, y: 30.89093, z: 0}
   m_SpriteSortPoint: 0
 --- !u!114 &7124154602847574683
 MonoBehaviour:
@@ -233,7 +264,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 39.650745, y: -3.7836204, z: 0}
+    - position: {x: 37.03759, y: -24.05519, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -241,7 +272,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 32.583813, y: -3.7434628, z: 0}
+    - position: {x: 28.457787, y: -19.831997, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -249,7 +280,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 15.143177, y: -4.510517, z: 0}
+    - position: {x: 17.20619, y: -21.88614, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -257,7 +288,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -7.592602, y: -3.990627, z: 0}
+    - position: {x: -7.592602, y: -21.161283, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -265,7 +296,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: -19.299454, y: -3.5812178, z: 0}
+    - position: {x: -25.92132, y: -27.336094, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -313,11 +344,11 @@ MonoBehaviour:
   - {x: 24.208172, y: 25.713985}
   - {x: 24.517914, y: 30.072256}
   - {x: 41.003292, y: 4.243674}
-  - {x: 39.650745, y: -3.7836204}
-  - {x: 32.583813, y: -3.7434628}
-  - {x: 15.143177, y: -4.510517}
-  - {x: -7.592602, y: -3.990627}
-  - {x: -19.299454, y: -3.5812178}
+  - {x: 37.03759, y: -24.05519}
+  - {x: 28.457787, y: -19.831997}
+  - {x: 17.20619, y: -21.88614}
+  - {x: -7.592602, y: -21.161283}
+  - {x: -25.92132, y: -27.336094}
   - {x: -4.932888, y: 34.445766}
   - {x: -13.839708, y: 2.7257621}
   m_ShadowSegment: []
@@ -377,11 +408,11 @@ PolygonCollider2D:
       - {x: 24.208172, y: 25.713985}
       - {x: 24.517914, y: 30.072256}
       - {x: 41.003292, y: 4.243674}
-      - {x: 39.650745, y: -3.7836204}
-      - {x: 32.583813, y: -3.7434628}
-      - {x: 15.143177, y: -4.510517}
-      - {x: -7.592602, y: -3.990627}
-      - {x: -19.299454, y: -3.5812178}
+      - {x: 37.03759, y: -24.05519}
+      - {x: 28.457787, y: -19.831997}
+      - {x: 17.20619, y: -21.88614}
+      - {x: -7.592602, y: -21.161283}
+      - {x: -25.92132, y: -27.336094}
       - {x: -4.932888, y: 34.445766}
       - {x: -13.839708, y: 2.7257621}
   m_UseDelaunayMesh: 1
@@ -421,6 +452,7 @@ Transform:
   - {fileID: 7035124279172205668}
   - {fileID: 1698964858241809903}
   - {fileID: 3195447678883516285}
+  - {fileID: 1723206662982604649}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &113627004374054452
@@ -437,6 +469,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GameLevel
   levelNumber: 1
   landerStartPositionTransform: {fileID: 3195447678883516285}
+  cameraStartTransform: {fileID: 1723206662982604649}
+  zoomedOutOrthographic: 16
 --- !u!1001 &1668170071898754843
 PrefabInstance:
   m_ObjectHideFlags: 0
