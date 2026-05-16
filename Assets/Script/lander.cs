@@ -55,6 +55,7 @@ state = State.WatitingToStart;
         landerRigidbody2D = GetComponent<Rigidbody2D>();
         landerRigidbody2D.gravityScale = 0f;
     }
+    
 
     private void FixedUpdate()
     {
@@ -80,13 +81,17 @@ state = State.WatitingToStart;
                     if (fuelAmount <= 0f){
                          return;
         } 
+        
        
 
 
         if (GameInput.Instance.IsUpActionPressed() || 
             GameInput.Instance.IsLeftActionPressed()||
-                 GameInput.Instance.IsRightActionPressed()) {
-        }
+                 GameInput.Instance.IsRightActionPressed())
+                {
+                   ConsumeFuel(); 
+                }
+        
 
 
         if (GameInput.Instance.IsUpActionPressed())

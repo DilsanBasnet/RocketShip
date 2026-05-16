@@ -48,6 +48,17 @@
                 },
                 {
                     "name": "",
+                    "id": "f0fd891b-b400-4378-b9b5-43ad3211d5f1",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LanderUp",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c0be5a8a-918a-4d3b-b4d3-28fb8d43f2ac",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
@@ -59,8 +70,30 @@
                 },
                 {
                     "name": "",
+                    "id": "2d1c823b-9608-4b21-8c5c-8a4a4d29de36",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LanderRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "e38bde90-5519-4b5f-a618-40c6dfcc54f0",
                     "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "LanderLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "93d7c413-8032-406c-b036-ea7570e95eb0",
+                    "path": "<Keyboard>/a",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
