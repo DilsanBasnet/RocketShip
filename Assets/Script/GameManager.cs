@@ -1,9 +1,14 @@
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SocialPlatforms.Impl;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
+
+    [SerializeField] private int levelNumber;
+    [SerializeField] private List<GameLevel> gamelevelList;
+
     private int score;
     private float time;
     private bool isTimerActive;
@@ -16,6 +21,7 @@ private void Awake()
         lander.Instance.OnCoinCollect += Lander_OnCoinCollect;
         lander.Instance.OnLanded += Lander_OnLanded;
         lander.Instance.OnStateChanged += lander_OnStateChanged;
+        LoadCurrentLevel();
     }
 
     private void lander_OnStateChanged(object sender, lander.OnStateChangedEventArgs e)
@@ -29,6 +35,21 @@ private void Awake()
         {
           time += Time.deltaTime;  
         }
+    }
+
+    private void LoadCurrentLevel()
+    {
+        // game level for😥
+        foreach(GameLevel gameLevel in gamelevelList)
+        {
+            if(gameLevel.GetLevelNumber() == levelNumber)
+            {
+              GameLevel spawnedGameLevel =  Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
+              spawnedGameLevel.GetLanderStartPosition();
+              lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
+            }
+        }
+        
     }
 private void Lander_OnLanded(object sender, lander.OnLandedEventArgs e)
     {
