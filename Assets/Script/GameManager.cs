@@ -1,12 +1,12 @@
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SocialPlatforms.Impl;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance {get; private set;}
 
-    [SerializeField] private int levelNumber;
+   private static int levelNumber = 1 ;
     [SerializeField] private List<GameLevel> gamelevelList;
 
     private int score;
@@ -73,6 +73,18 @@ Debug.Log(score);
 public float GetTime()
     {
         return time;
+    }
+    public void GoToNextLevel() {
+        levelNumber++;
+        SceneManager.LoadScene(0);
+        
+    }
+    public void RetryLevel(){
+        SceneManager.LoadScene(0);
+    }
+    public int GetLevelNumber()
+    {
+        return levelNumber;
     }
 }
 

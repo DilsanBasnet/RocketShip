@@ -34,6 +34,7 @@ private void Update()
 
 fuelImage.fillAmount  = lander.Instance.GetFuelAmountNormalized();
         statsTextMesh.text=
+        GameManager.Instance.GetLevelNumber() + "\n" +
         GameManager.Instance.GetScore() + "\n" +
        Mathf.Round( GameManager.Instance.GetTime()) + "\n" +
         Math.Abs(Mathf.Round(lander.Instance.GetSpeedX() * 10f)) + "\n" +
@@ -41,6 +42,4 @@ fuelImage.fillAmount  = lander.Instance.GetFuelAmountNormalized();
          
     }
 
-
-  
 }
