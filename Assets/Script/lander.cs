@@ -11,6 +11,7 @@ private const float GRAVITY_NORMAL = 0.7f;
     public event EventHandler OnLeftForce;
     public event EventHandler OnBeforeForce;
     public event EventHandler OnCoinCollect;
+    public event EventHandler OnFuelCollect;
     public event EventHandler<OnStateChangedEventArgs> OnStateChanged;
     public class OnStateChangedEventArgs: EventArgs  
 {
@@ -209,6 +210,7 @@ break;
             {
                 fuelAmount = fuelAmountMax;
             }
+            OnFuelCollect?.Invoke(this, EventArgs.Empty);
             Fuel.Destoryself();
 
         }

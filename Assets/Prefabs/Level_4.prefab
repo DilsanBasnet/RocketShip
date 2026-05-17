@@ -178,7 +178,7 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 19.72919, y: 9.63947, z: 0}
+    - position: {x: 19.729214, y: 9.639487, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -186,7 +186,15 @@ MonoBehaviour:
       spriteIndex: 0
       corner: 1
       m_CornerMode: 1
-    - position: {x: 20.123392, y: 12.145904, z: 0}
+    - position: {x: 19.442871, y: 12.89624, z: 0}
+      leftTangent: {x: 0, y: 0, z: 0}
+      rightTangent: {x: 0, y: 0, z: 0}
+      mode: 0
+      height: 1
+      spriteIndex: 0
+      corner: 1
+      m_CornerMode: 1
+    - position: {x: 20.359089, y: 12.28368, z: 0}
       leftTangent: {x: 0, y: 0, z: 0}
       rightTangent: {x: 0, y: 0, z: 0}
       mode: 0
@@ -408,8 +416,9 @@ MonoBehaviour:
   - {x: 11.886826, y: 4.619687}
   - {x: 13.724048, y: 9.725342}
   - {x: 15.701221, y: 9.539882}
-  - {x: 19.72919, y: 9.63947}
-  - {x: 20.123392, y: 12.145904}
+  - {x: 19.729214, y: 9.639487}
+  - {x: 19.442871, y: 12.89624}
+  - {x: 20.359089, y: 12.28368}
   - {x: 21.68484, y: 3.957363}
   - {x: 25.405977, y: 4.0043025}
   - {x: 23.898859, y: 15.962702}
@@ -489,8 +498,9 @@ PolygonCollider2D:
       - {x: 11.886826, y: 4.619687}
       - {x: 13.724048, y: 9.725342}
       - {x: 15.701221, y: 9.539882}
-      - {x: 19.72919, y: 9.63947}
-      - {x: 20.123392, y: 12.145904}
+      - {x: 19.729214, y: 9.639487}
+      - {x: 19.442871, y: 12.89624}
+      - {x: 20.359089, y: 12.28368}
       - {x: 21.68484, y: 3.957363}
       - {x: 25.405977, y: 4.0043025}
       - {x: 23.898859, y: 15.962702}
@@ -770,13 +780,29 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4026702918135905555}
     m_Modifications:
+    - target: {fileID: 1039459861761313150, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.2775
+      objectReference: {fileID: 0}
+    - target: {fileID: 1039459861761313150, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -5.1781
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214771568679963672, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Size.x
+      value: 7.3508186
+      objectReference: {fileID: 0}
+    - target: {fileID: 1214771568679963672, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Size.y
+      value: 2.261522
+      objectReference: {fileID: 0}
     - target: {fileID: 2116382230985410275, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.99
+      value: 26.37
       objectReference: {fileID: 0}
     - target: {fileID: 2116382230985410275, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.49
+      value: 1.65
       objectReference: {fileID: 0}
     - target: {fileID: 2116382230985410275, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
       propertyPath: m_LocalPosition.z
@@ -833,6 +859,22 @@ PrefabInstance:
     - target: {fileID: 4752448145143576807, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
       propertyPath: m_TextWrappingMode
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511222065520228085, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Size.x
+      value: 2.6444702
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511222065520228085, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Size.y
+      value: 0.7778206
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511222065520228085, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Offset.x
+      value: -1.2307434
+      objectReference: {fileID: 0}
+    - target: {fileID: 7511222065520228085, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
+      propertyPath: m_Offset.y
+      value: -5.2239323
       objectReference: {fileID: 0}
     - target: {fileID: 8170175593982153649, guid: 900ad9e6c0bd09a4293dbfa9fbf99284, type: 3}
       propertyPath: m_AnchoredPosition.x
