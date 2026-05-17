@@ -11,12 +11,14 @@ public class GameManager : MonoBehaviour
     public static GameManager Instance {get; private set;}
 
    private static int levelNumber = 1 ;
+   private static int totalScore = 0;
 
    public event EventHandler OnGamePaused;
    public event EventHandler OnGameUnpaused;
 
     [SerializeField] private List<GameLevel> gamelevelList;
     [SerializeField] private CinemachineCamera cinemachineCamera;
+    
     private int score;
     private float time;
     private bool isTimerActive;
@@ -55,23 +57,26 @@ private void Awake()
           time += Time.deltaTime;  
         }
     }
-
-    private void LoadCurrentLevel()
-    {
-        // game level for😥
-        foreach(GameLevel gameLevel in gamelevelList)
-        {
-            if(gameLevel.GetLevelNumber() == levelNumber)
-            {
-              GameLevel spawnedGameLevel =  Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
+    private void LoadCurrentLevel(){
+       GameLevel gameLevel = GetGameLevel () ;
+       GameLevel spawnedGameLevel =  Instantiate(gameLevel, Vector3.zero, Quaternion.identity);
               spawnedGameLevel.GetLanderStartPosition();
               lander.Instance.transform.position = spawnedGameLevel.GetLanderStartPosition();
               cinemachineCamera.Target.TrackingTarget = spawnedGameLevel.getCameraStartTransform();
               CinemachineCameraZoom2D.Instance.SetTarge(spawnedGameLevel.GetZoomedOutOrthographic());
-            }
-        }
-        
     }
+
+    private GameLevel  GetGameLevel(){
+        foreach(GameLevel gameLevel in gamelevelList)
+        {
+            if(gameLevel.GetLevelNumber() == levelNumber) {
+                return gameLevel;
+            }
+    }
+    return null;
+        }
+    
+        
 private void Lander_OnLanded(object sender, lander.OnLandedEventArgs e)
     {
         AddScore(e.score);
@@ -95,9 +100,23 @@ public float GetTime()
     {
         return time;
     }
+
+    public int GetTotalScore()
+    {
+        return totalScore;
+    }
+
     public void GoToNextLevel() {
         levelNumber++;
-        SceneLoader.LoadScene(SceneLoader.Scene.GameScene);
+        totalScore  += score;
+        if(GetGameLevel() == null)
+        {
+            SceneLoader.LoadScene(SceneLoader.Scene.GameOverScene);
+        }
+        else
+        {
+            SceneLoader.LoadScene(SceneLoader.Scene.GameScene);
+        }
         
     }
     public void RetryLevel(){
