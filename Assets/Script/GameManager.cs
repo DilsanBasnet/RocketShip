@@ -13,6 +13,12 @@ public class GameManager : MonoBehaviour
    private static int levelNumber = 1 ;
    private static int totalScore = 0;
 
+   public static void ResetStatic()
+    {
+        levelNumber =1 ;
+        totalScore = 0;
+    }
+
    public event EventHandler OnGamePaused;
    public event EventHandler OnGameUnpaused;
 

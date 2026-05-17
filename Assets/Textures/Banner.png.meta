@@ -3,13 +3,13 @@ guid: b88af691129974a4bab7c47b185954b8
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 8192327527931970262
-    second: Banner_0
+      213: 4763415714078566847
+    second: banner_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
     mipMapMode: 0
-    enableMipMap: 1
+    enableMipMap: 0
     sRGBTexture: 1
     linearTexture: 0
     fadeOut: 0
@@ -97,7 +97,7 @@ TextureImporter:
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   - serializedVersion: 4
-    buildTarget: WindowsStoreApps
+    buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
@@ -113,23 +113,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Banner_0
+      name: banner_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1504
-        height: 374
+        x: 20
+        y: 279
+        width: 702
+        height: 232
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 393, y: 0, z: 397, w: 0}
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 6d20a0a5b7ef0b170800000000000000
-      internalID: 8192327527931970262
+      spriteID: fb9aa23ba5d0b1240800000000000000
+      internalID: 4763415714078566847
       vertices: []
       indices: 
       edges: []
@@ -138,7 +138,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: c5aed63735cf6ca48b694584fc1b6dfc
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -148,9 +148,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Banner_0: 8192327527931970262
+      banner_0: 4763415714078566847
   mipmapLimitGroupName: 
-  pSDRemoveMatte: 1
+  pSDRemoveMatte: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

@@ -1,15 +1,21 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class PausedUI : MonoBehaviour
 {
     [SerializeField] private Button resumeButton;
+    [SerializeField] private Button mainMenuButton;
 
     private void Awake()
     {
         resumeButton.onClick.AddListener(()=>
         {
             GameManager.Instance.UnpauseGame();
+        });
+        mainMenuButton.onClick.AddListener(() =>
+        {
+            SceneLoader.LoadScene(SceneLoader.Scene.MainMenueScene);
         });
     }
 
