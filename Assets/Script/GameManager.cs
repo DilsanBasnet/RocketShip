@@ -1,13 +1,20 @@
+using System;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     public static GameManager Instance {get; private set;}
 
    private static int levelNumber = 1 ;
+
+   public event EventHandler OnGamePaused;
+   public event EventHandler OnGameUnpaused;
+
     [SerializeField] private List<GameLevel> gamelevelList;
     [SerializeField] private CinemachineCamera cinemachineCamera;
     private int score;
@@ -22,7 +29,12 @@ private void Awake()
         lander.Instance.OnCoinCollect += Lander_OnCoinCollect;
         lander.Instance.OnLanded += Lander_OnLanded;
         lander.Instance.OnStateChanged += lander_OnStateChanged;
+        GameInput.Instance.onMenuButtonPressed += GameInput_onMenuButtonPressed;
         LoadCurrentLevel();
+    }
+    private void GameInput_onMenuButtonPressed(object sender, System.EventArgs e)
+    {
+        PauseUnpauseGame() ;
     }
 
     private void lander_OnStateChanged(object sender, lander.OnStateChangedEventArgs e)
@@ -94,6 +106,27 @@ public float GetTime()
     public int GetLevelNumber()
     {
         return levelNumber;
+    }
+
+public void PauseUnpauseGame()
+    {
+        if(Time.timeScale == 1f)
+        {
+            PauseGame();
+        }
+        else
+        {
+            UnpauseGame();
+        }
+    }
+    public void PauseGame() {
+        Time.timeScale = 0f;
+        OnGamePaused?.Invoke(this, EventArgs.Empty);
+    }
+
+    public void UnpauseGame(){
+        Time.timeScale = 1f;
+        OnGameUnpaused?.Invoke(this, EventArgs.Empty);
     }
 }
 
